@@ -1,0 +1,93 @@
+<!-- A partir del siguiente listado filtre los vehículos que tengan una capacidad mayor a 10 y sean de color azul. -->
+<!-- let vehiculo = [{"color": "rojo","marca": "bmw","capacidad": 11},{"color": "azul","marca": "fiat","capacidad": 2},{"color": "negro","marca": "hyundai","capacidad": 6},{"color": "amarillo","marca": "jeep","capacidad": 15},{"color": "azul","marca": "citroen","capacidad": 20},{"color": "azul","marca": "renault","capacidad": 12},{"color": "rojo","marca": "ford","capacidad": 4},{"color": "gris","marca": "toyota","capacidad": 8}]; -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script>
+      let vehiculos = [
+        { color: "rojo", marca: "bmw", capacidad: 11 },
+        { color: "azul", marca: "fiat", capacidad: 2 },
+        { color: "negro", marca: "hyundai", capacidad: 6 },
+        { color: "amarillo", marca: "jeep", capacidad: 15 },
+        { color: "azul", marca: "citroen", capacidad: 20 },
+        { color: "azul", marca: "renault", capacidad: 12 },
+        { color: "rojo", marca: "ford", capacidad: 4 },
+        { color: "gris", marca: "toyota", capacidad: 8 },
+      ];
+
+      function filtrarVehiculos(vehiculos) {
+        return vehiculos.map((vehiculo) => {
+          if (vehiculo.capacidad > 10 && vehiculo.color === "azul") {
+            return vehiculo;
+          }
+        });
+      }
+      function imprimirTodosLosVehiculos(vehiculos) {
+        document.write("<ul>");
+        document.write("<table>");
+        document.write("<tr>");
+        document.write("<td>");
+        document.write("Color");
+        document.write("</td>");
+        document.write("<td>");
+        document.write("Marca");
+        document.write("</td>");
+        document.write("<td>");
+        document.write("Capacidad");
+        document.write("</td>");
+        document.write("</tr>");
+        vehiculos.forEach((vehiculo) => {
+          document.write("<tr>");
+          document.write("<td>");
+          document.write(vehiculo.color);
+          document.write("</td>");
+          document.write("<td>");
+          document.write(vehiculo.marca);
+          document.write("</td>");
+          document.write("<td>");
+          document.write(vehiculo.capacidad);
+          document.write("</td>");
+          document.write("</tr>");
+        });
+        document.write("</table>");
+        document.write("</ul>");
+      }
+      function imprimirVehiculos(vehiculos) {
+        document.write("<ul>");
+        vehiculos.forEach((vehiculo) => {
+          if (vehiculo !== undefined) {
+            document.write("<li>");
+            document.write(
+              `El vehículo de color ${vehiculo.color}, marca ${vehiculo.marca} y capacidad ${vehiculo.capacidad} cumple con la condición.`
+            );
+            document.write("</li>");
+          }
+        });
+        document.write("</ul>");
+      }
+    </script>
+    <h1>Ejercicio 4</h1>
+    <p>
+      A partir del siguiente listado filtre los vehículos que tengan una
+      capacidad mayor a 10 y sean de color azul.
+    </p>
+    <script>
+      imprimirTodosLosVehiculos(vehiculos);
+    </script>
+    <hr />
+    <h2>Resultado</h2>
+    <p>
+      <strong>Los vehículos que cumplen con la condición son:</strong>
+    </p>
+    <script>
+      imprimirVehiculos(filtrarVehiculos(vehiculos));
+    </script>
+  </body>
+</html>
